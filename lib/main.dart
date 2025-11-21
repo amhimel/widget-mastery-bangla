@@ -4,25 +4,60 @@ void main() {
   runApp(
     MaterialApp(
       title: 'Material App',
-      theme: ThemeData(primarySwatch: Colors.amber),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('AppBar & SafeArea'),
-            centerTitle: true,
-            backgroundColor: Colors.redAccent,
-            actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-            ],
-          ),
-          body: SafeArea(
-              top: true,
-              bottom: true,
-              left: false,
-              right: false,
-              child: Text(
-              'Multiline text is a block of text that spans multiple lines within a defined boundary, like a text box or a specified area. Unlike single-line text, it automatically wraps words to the next line and allows for features such as formatting, justification, and bulleted lists, similar to a word processor. This is used for extensive notes or messages in applications and design software'))
+      //light theme
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          brightness: Brightness.light,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.purpleAccent,
+            foregroundColor: Colors.blueAccent
+          )
+        )
       ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.black,
+          brightness: Brightness.dark,
+        ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purpleAccent,
+                  foregroundColor: Colors.purple
+              )
+          )
+      ),
+      themeMode:  ThemeMode.system,
+      home: HomePage(),
     ),
   );
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    return Scaffold(
+      appBar: AppBar(title: Text('Theme & ColorScheme')),
+      body: Center(
+        child: Column(
+          children: [
+            Text("Primary Color Example ",style: textTheme.bodyLarge?.copyWith(
+              color: colorScheme.secondary
+            ),),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Primary Button'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
