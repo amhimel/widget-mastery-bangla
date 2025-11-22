@@ -1,39 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      title: 'Material App',
-      //light theme
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-          brightness: Brightness.light,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.purpleAccent,
-            foregroundColor: Colors.blueAccent
-          )
-        )
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.black,
-          brightness: Brightness.dark,
-        ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purpleAccent,
-                  foregroundColor: Colors.purple
-              )
-          )
-      ),
-      themeMode:  ThemeMode.system,
-      home: HomePage(),
-    ),
-  );
+  runApp(MaterialApp(title: 'Material App', home: HomePage()));
 }
 
 class HomePage extends StatelessWidget {
@@ -41,22 +9,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(title: Text('Theme & ColorScheme')),
+      appBar: AppBar(title: Text(' Container Vs Padding ')),
       body: Center(
         child: Column(
-          children: [
-            Text("Primary Color Example ",style: textTheme.bodyLarge?.copyWith(
-              color: colorScheme.secondary
-            ),),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Primary Button'),
-            ),
-          ],
-        ),
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.amber
+
+                ),
+                child: Text('Inside Container'),
+              ),
+              Padding(padding: EdgeInsets.all(20),child: Text('Inside Padding'),)
+            ]
+      ),
       ),
     );
   }
