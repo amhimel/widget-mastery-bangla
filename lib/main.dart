@@ -15,8 +15,8 @@ class HomePage extends StatelessWidget {
         child: Column(
             children: [
               Container(
-                height: 100,
-                width: 100,
+                height: 120,
+                width: 120,
                 padding: EdgeInsets.all(20),
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -24,9 +24,10 @@ class HomePage extends StatelessWidget {
                   color: Colors.amber
 
                 ),
-                child: Text('Inside Container'),
+                child: Align(child: Text('Container'),
+                alignment: Alignment(0.8,0.5),),
               ),
-              Padding(padding: EdgeInsets.all(20),child: Text('Inside Padding'),)
+
             ]
       ),
       ),
