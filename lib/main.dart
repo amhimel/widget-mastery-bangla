@@ -10,23 +10,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(' Container Vs Padding ')),
+      appBar: AppBar(title: Text(' SizeBox VS Spacer ')),
       body: Center(
-        child: Column(
+        child: Row(
             children: [
-              Container(
-                height: 120,
-                width: 120,
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.amber
-
-                ),
-                child: Align(child: Text('Container'),
-                alignment: Alignment(0.8,0.5),),
-              ),
+              Text("Hi, There ...."),
+              Spacer(),
+              Text("I am Himel. ...."),
+              // SizedBox(
+              //   height: 100,
+              //   width: 150,
+              //   child: Container(
+              //     color: Colors.amber,
+              //   ),
 
             ]
       ),
