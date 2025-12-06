@@ -10,22 +10,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(' SizeBox VS Spacer ')),
+      appBar: AppBar(title: Text(' FittedBox VS AspectRatio ')),
       body: Center(
-        child: Row(
-            children: [
-              Text("Hi, There ...."),
-              Spacer(),
-              Text("I am Himel. ...."),
-              // SizedBox(
-              //   height: 100,
-              //   width: 150,
-              //   child: Container(
-              //     color: Colors.amber,
-              //   ),
+        child: Container(
+          height: 200,
+          width: 150,
+          color: Colors.redAccent,
+          child: AspectRatio(aspectRatio: 1/1,child: Text("AspectRatio Widget"),)
 
-            ]
-      ),
+        )
       ),
     );
   }
